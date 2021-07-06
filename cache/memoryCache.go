@@ -2,6 +2,18 @@ package cache
 
 import "github.com/danilomarques1/redisexample/entity"
 
+
+/*
+        // TODO next
+        // allow to save any kind of data using a map
+
+        map[config] -> configValue
+        map[user] -> userValue
+*/
+
+// TODO receive interface from the save cache
+// TODO return interface from the get cache
+
 type MemoryCache struct {
 	cacheValue entity.Config
 }

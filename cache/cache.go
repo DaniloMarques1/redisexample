@@ -6,7 +6,7 @@ import (
 
 type Cache interface {
 	IsCacheEmpty() bool
-	SaveCache(entity.Config) error // TODO
+	SaveCache(entity.Config) error // TODO receive interface
 	RemoveCache() error
-	GetCache() (entity.Config, error)
+	GetCache() (entity.Config, error) // TODO return interface
 }

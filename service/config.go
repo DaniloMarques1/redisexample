@@ -46,7 +46,7 @@ func (cs *ConfigService) AddConfig(configDto dto.ConfigDto) (entity.Config, erro
 func (cs *ConfigService) GetConfig() (entity.Config, error) {
 	if !cs.cacheService.IsCacheEmpty() {
 		log.Printf("Cache is not empty\n")
-		return cs.cacheService.GetCache()
+		return cs.cacheService.GetCache() // it will be returned an interface
 	}
 
 	log.Printf("Getting data from db\n")
