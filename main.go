@@ -12,6 +12,7 @@ import (
 	"github.com/danilomarques1/redisexample/dto"
 	"github.com/danilomarques1/redisexample/repository"
 	"github.com/danilomarques1/redisexample/service"
+	"github.com/go-redis/redis"
 	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 )
@@ -52,9 +53,13 @@ func main() {
 
 	configRepository := repository.NewConfigRepositorySql(db)
 	//cache := cache.NewMemoryCache() // in memory cache
-	cache := cache.NewFileCache("redisexample_file_config") // in file cache
-	// TODO add redis cache
-
+	//cache := cache.NewFileCache("redisexample_file_config") // in file cache
+	client := redis.NewClient(&redis.Options{ // redis cache
+		Addr:     "0.0.0.0:6379",
+		Password: "",
+		DB:       0,
+	})
+	cache := cache.NewRedisCache(client)
 	configService := service.NewConfigService(configRepository, cache)
 	configHandler := NewConfigHandler(configService)
 

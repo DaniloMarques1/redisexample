@@ -2,13 +2,12 @@ package cache
 
 import "github.com/danilomarques1/redisexample/entity"
 
-
 /*
-        // TODO next
-        // allow to save any kind of data using a map
+   // TODO next
+   // allow to save any kind of data using a map
 
-        map[config] -> configValue
-        map[user] -> userValue
+   map[config] -> configValue
+   map[user] -> userValue
 */
 
 // TODO receive interface from the save cache
